@@ -1,0 +1,78 @@
+.detail-box-container {
+    width: 1000px;
+    height: 600px;
+    background-color: black;
+    border-radius: 25px;
+    padding: 20px;
+}
+.detail-overview{
+    text-align: justify;
+    text-indent: 0.5in;
+}
+.detail-img{
+    width: 300px;
+    height: 450px;
+}
+.detail-card{
+    width: 500px;
+    border-radius: 10px;
+    background-color: #282c34;
+}
+.detail-popularity .popularity{
+    width: 40px;
+    background-color: gray;
+}
+p{
+    color: white;
+}
+
+.detail{
+    /* height: 1000px; */
+}
+
+.detail-title h3{
+    font-family: 'Staatliches', cursive;
+    color: bisque;
+}
+.tags{
+    width: 60px;
+    background-color: aqua;
+}
+
+.tag-button{
+    background-color: black ;
+    color: white;
+}
+
+.tag-detail{
+    /* background-color: #F2EDD7; */
+}
+
+.tags-tag{
+    text-align: left;
+    color: white;
+}
+.user-rating{
+    width: 10px;
+    font-weight: bold;
+}
+.popularity-rating{
+    width:80px;
+    height: 80px;
+    font-size: 25px;
+    background-color: #C68B59;
+    font-family: 'Dela Gothic One', cursive;
+}
+.button-icon{
+    height: 40px;
+    background-color: #402218;
+}
+.similar-movie-container{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.similar-movie-card{
+    width: 200px;
+    display: inline-block;
+}
