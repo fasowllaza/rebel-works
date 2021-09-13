@@ -16,22 +16,20 @@ export default function SimilarCard(props) {
 
     return (
         <>
-            <div class="card-container mx-1 my-2 rounded" >
-                <div className="d-flex flex-row-reverse">
-                    {
-                        location.pathname === "/favorites" ? (
-                            <button style={{color: 'black'}}  className="btn"><i class="far fa-times-circle fa-2x"></i></button> ) : (
-                                ""
-                            )
-                    }
-                </div>
-                <div className="card-inner-container my-4 mx-2">
-                    <a onClick={()=> movieDetail(props.movie)} class="btn"  href="#">
-                        <div class="">
-                                <img src={`https://image.tmdb.org/t/p/w200/${props.movie.poster_path}`} className="card-img" alt=""/>
-                        </div>
-                    </a>
-                </div>
+            <div className="d-flex flex-row-reverse">
+                {
+                    location.pathname === "/favorites" ? (
+                        <button style={{color: 'black'}}  className="btn"><i class="far fa-times-circle fa-2x"></i></button> ) : (
+                            ""
+                        )
+                }
+            </div>
+            <div className="card-inner-container my-4 mx-2">
+                <a onClick={()=> movieDetail(props.movie)} class="btn"  href="#">
+                    <div class="">
+                            <img src={`https://image.tmdb.org/t/p/w200/${props.movie.poster_path}`} className="card-img" alt=""/>
+                    </div>
+                </a>
             </div>
         </>
     )

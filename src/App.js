@@ -21,7 +21,7 @@ import Detail from './pages/Detail/Detail';
 function App() {
   return (
     <Provider store={store}>
-      <div className="container" style={{height:'100vh'}}>
+      <div className="" style={{height:'100vh'}}>
         <Router>
           <div>
             <Navbar/>

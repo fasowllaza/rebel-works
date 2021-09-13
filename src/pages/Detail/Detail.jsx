@@ -6,6 +6,7 @@ import { setLoading, setSimilarMovies } from "../../store/actionCreators/movieCr
 import { fetchNowPlayingMovies, fetchSimilarMovies } from "../../store/actions"
 import { useParams } from 'react-router-dom'
 import SimilarCard from "../../components/SimilarCard/SimilarCard"
+import YoutubeEmbed from "../../components/YoutubeEmbed/YoutubeEmbed"
 
 export default function Detail(){
     const dispatch = useDispatch()
@@ -25,58 +26,61 @@ export default function Detail(){
     return (
         <>
             <div className="detail mx-auto">
-                <div className="detail-box-container mx-auto">
-                    <div className="d-flex">
-                        <div className="image-container mx-auto mt-5">
-                            <img src={`https://image.tmdb.org/t/p/w500/${detailMovie.poster_path}`} className="detail-img" alt=""/>
-                        </div>
-                        <div className="detail-card py-5 px-5 mt-5 me-3">
-                            <div className="detail-title mt-3">
-                                <h3>{detailMovie.title} - {detailMovie.release_date}</h3>
+                <img src={`https://image.tmdb.org/t/p/w500${detailMovie.backdrop_path}`} className="detail-backdrop position-absolute" alt=""/>
+                <div classname="detail-box position-relative">
+                    <div className="detail-box-container mx-auto">
+                        <div className="d-flex">
+                            <div className="image-container mx-auto mt-2">
+                                <img src={`https://image.tmdb.org/t/p/w500/${detailMovie.poster_path}`} className="detail-img rounded" alt=""/>
                             </div>
-                            <div className="detail-body mt-3">
-                                <p className="detail-overview">{detailMovie.overview}</p>
-                            </div>
-                            <div className="detail-button mb-auto d-flex justify-content-between mt-5">
-                            <div className="detail-popularity d-flex">
-                                <div className="d-flex">
-                                    <button className="popularity-rating btn rounded-circle">
-                                        {detailMovie.vote_average}
-                                    </button>
-                                    <p className="ms-3 my-auto user-rating">User Rating</p>
+                            <div className="detail-card py-5 px-5 mt-2 me-3">
+                                <div className="detail-title mt-3">
+                                    <h3>{detailMovie.title}</h3>
+                                </div>
+                                <div className="detail-body mt-3">
+                                    <p className="detail-overview">{detailMovie.overview}</p>
+                                </div>
+                                <div className="detail-button mb-auto d-flex justify-content-between mt-5">
+                                    <div className="detail-popularity d-flex">
+                                        <div className="d-flex">
+                                            <button className="popularity-rating btn rounded-circle">
+                                                {detailMovie.vote_average.toFixed(1)}
+                                            </button>
+                                            <p className="ms-3 my-auto user-rating">User Rating</p>
+                                        </div>
+                                    </div>
+                                <div>
+                                    <p>Movie Released</p>
+                                    <p>{detailMovie.release_date}</p>
+                                </div>
                                 </div>
                             </div>
-                                {/* <button className="button-icon btn btn-primary my-auto ms-3" onClick={() => addToFavorit()}>
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                                <button className="button-icon btn btn-primary my-auto" onClick={() => history.push(`/editContent/${id}`)}>
-                                    <i class="far fa-edit"></i>
-                                </button>
-                                <button className="button-icon btn btn-primary my-auto" onClick={() => deleteMovieData()}>
-                                    <i class="fas fa-trash"></i>
-                                </button> */}
+                            <div className="mt-5">
+                                <YoutubeEmbed embedId="eg5ciqQzmK0" />
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="similar-movie-container mb-5">
-                <div className="row">
-                    {
-                        similarMovies.map((movie, index) => {
-                            if(index< 6){
-                                return (
-                                    <div className="similar-movie-card">
-                                        <SimilarCard
-                                            key={movie.id}
-                                            movie={movie}
-                                        />
-                                    </div>
-                                )
+                    <div class="similar-movie-container">
+                        <br></br>
+                        <div className="similar-text ms-5">
+                            <p className="1">Similar Movies</p>
+                        </div>
+                        <div className="scrollmenu">
+                            {
+                                similarMovies.map((movie, index) => {
+                                    return (
+                                        <div className="similar-movie-card">
+                                            <SimilarCard
+                                                key={movie.id}
+                                                movie={movie}
+                                            />
+                                        </div>
+                                    )
+                                })
+                                
                             }
-                        })
-                        
-                    }
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
