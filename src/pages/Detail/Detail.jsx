@@ -19,70 +19,75 @@ export default function Detail(){
         dispatch(fetchSimilarMovies(detailMovie.id))
         setTimeout(()=>{
             dispatch(setLoading(false))
-            console.log(detailMovie)
         }, 1000)
     }, [id])
 
     return (
         <>
-            <div className="detail mx-auto">
-                <img src={`https://image.tmdb.org/t/p/w500${detailMovie.backdrop_path}`} className="detail-backdrop position-absolute" alt=""/>
-                <div classname="detail-box position-relative">
-                    <div className="detail-box-container mx-auto">
-                        <div className="d-flex">
-                            <div className="image-container mx-auto mt-2">
-                                <img src={`https://image.tmdb.org/t/p/w500/${detailMovie.poster_path}`} className="detail-img rounded" alt=""/>
-                            </div>
-                            <div className="detail-card py-5 px-5 mt-2 me-3">
-                                <div className="detail-title mt-3">
-                                    <h3>{detailMovie.title}</h3>
-                                </div>
-                                <div className="detail-body mt-3">
-                                    <p className="detail-overview">{detailMovie.overview}</p>
-                                </div>
-                                <div className="detail-button mb-auto d-flex justify-content-between mt-5">
-                                    <div className="detail-popularity d-flex">
-                                        <div className="d-flex">
-                                            <button className="popularity-rating btn rounded-circle">
-                                                {detailMovie.vote_average.toFixed(1)}
-                                            </button>
-                                            <p className="ms-3 my-auto user-rating">User Rating</p>
+            {
+                loading? (
+                    ""
+                ) : (
+                    <div className="detail mx-auto">
+                        <img src={`https://image.tmdb.org/t/p/w500${detailMovie.backdrop_path}`} className="detail-backdrop position-absolute" alt=""/>
+                        <div classname="detail-box position-relative">
+                            <div className="detail-box-container mx-auto">
+                                <div className="d-flex">
+                                    <div className="image-container mx-auto mt-2">
+                                        <img src={`https://image.tmdb.org/t/p/w500/${detailMovie.poster_path}`} className="detail-img rounded" alt=""/>
+                                    </div>
+                                    <div className="detail-card py-5 px-5 mt-2 me-3">
+                                        <div className="detail-title mt-3">
+                                            <h3>{detailMovie.title}</h3>
+                                        </div>
+                                        <div className="detail-body mt-3">
+                                            <p className="detail-overview">{detailMovie.overview}</p>
+                                        </div>
+                                        <div className="detail-button mb-auto d-flex justify-content-between mt-5">
+                                            <div className="detail-popularity d-flex">
+                                                <div className="d-flex">
+                                                    <button className="popularity-rating btn rounded-circle">
+                                                        {detailMovie.vote_average.toFixed(1)}
+                                                    </button>
+                                                    <p className="ms-3 my-auto user-rating">User Rating</p>
+                                                </div>
+                                            </div>
+                                        <div>
+                                            <p>Movie Released</p>
+                                            <p>{detailMovie.release_date}</p>
+                                        </div>
                                         </div>
                                     </div>
-                                <div>
-                                    <p>Movie Released</p>
-                                    <p>{detailMovie.release_date}</p>
-                                </div>
+                                    <div className="mt-5">
+                                        {/* <YoutubeEmbed embedId="eg5ciqQzmK0" /> */}
+                                    </div>
                                 </div>
                             </div>
-                            <div className="mt-5">
-                                <YoutubeEmbed embedId="eg5ciqQzmK0" />
+                            <div class="similar-movie-container">
+                                <br></br>
+                                <div className="similar-text ms-5">
+                                    <p className="1">Similar Movies</p>
+                                </div>
+                                <div className="scrollmenu">
+                                    {
+                                        similarMovies.map((movie, index) => {
+                                            return (
+                                                <div className="similar-movie-card">
+                                                    <SimilarCard
+                                                        key={movie.id}
+                                                        movie={movie}
+                                                    />
+                                                </div>
+                                            )
+                                        })
+                                        
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="similar-movie-container">
-                        <br></br>
-                        <div className="similar-text ms-5">
-                            <p className="1">Similar Movies</p>
-                        </div>
-                        <div className="scrollmenu">
-                            {
-                                similarMovies.map((movie, index) => {
-                                    return (
-                                        <div className="similar-movie-card">
-                                            <SimilarCard
-                                                key={movie.id}
-                                                movie={movie}
-                                            />
-                                        </div>
-                                    )
-                                })
-                                
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
+                )
+            }
         </>
     )
 }

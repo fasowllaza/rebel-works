@@ -37,6 +37,7 @@ export default function NowPlaying(){
     }, [page])
 
     return (
+        <div>
         <InfiniteScroll 
         dataLength={movies.length}
         next={()=>setPage(page+1)}
@@ -64,5 +65,7 @@ export default function NowPlaying(){
                 )
             }
         </InfiniteScroll>
+
+        </div>
     )
 }

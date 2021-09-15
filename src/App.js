@@ -16,6 +16,7 @@ import HomePage from './pages/HomePage/HomePage';
 import NowPlaying from './pages/NowPlaying/NowPlaying';
 import Navbar from './components/Navbar';
 import Detail from './pages/Detail/Detail';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
             <Route exact path ="/redirect">
               <Redirect/>
             </Route>
-            <Route exact path ="/home">
+            <Route exact path ="/">
               <HomePage/>
             </Route>
             <Route exact path ="/nowPlaying">
@@ -42,6 +43,7 @@ function App() {
             <Route exact path ="/movie/:id">
               <Detail/>
             </Route>
+            <Route component={NotFound}/>
           </Switch>
         </Router>
       </div>

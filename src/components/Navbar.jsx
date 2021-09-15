@@ -12,7 +12,7 @@ export default function Navbar(){
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <div className="col">
-                            <a style={{textAlign:"center"}} class="nav-link" onClick={() => history.push('/home')} href="#">Home</a>
+                            <a style={{textAlign:"center"}} class="nav-link" onClick={() => history.push('/')} href="#">Home</a>
                         </div>
                         <div className="col">
                             <a style={{textAlign:"center"}} class="nav-link" onClick={() => history.push('/nowPlaying')} href="#">Now Playing</a>

@@ -23,7 +23,11 @@ export default function HomePage(){
                     ""
                 ) : (
                     <div class="container-announcer row justify-content-center">
-                        <div class=" col-6 my-auto mx-auto">
+                        <div className="latest-movie-sign">
+                            <p className="mt-5" style={{textAlign:"center"}}>Latest Movie</p>
+                        </div>
+                        <div class="container-latest-play rounded col-4 mx-auto mt-5">
+                            <br></br>
                             <h1 style={{textAlign:"center"}}>{latestMovie.original_title}</h1>
                             <div class=" mx-auto">
                                 {latestMovie.backdrop_path? (

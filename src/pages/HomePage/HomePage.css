@@ -6,3 +6,14 @@
 .image-container{
     width: 400px;
 }
+
+.container-latest-play{
+    background-color: #D4B499;
+}
+.latest-movie-sign{
+    font-size: xx-large;
+}
+
+.latest-movie-sign > p{
+    color: black;
+}

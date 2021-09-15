@@ -25,7 +25,7 @@ export default function Card(props) {
                             )
                     }
                 </div>
-                <div className="card-inner-container my-4 mx-2">
+                <div className="card-inner-container my-2 mx-2">
                     <a onClick={()=> movieDetail(props.movie)} class="btn"  href="#">
                         <div class="">
                                 <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} className="card-img" alt=""/>
